@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.abruzzo.digitalinnovation</groupId>
-	<artifactId>personapi</artifactId>
+	<artifactId>personapi_edabruzzo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>personapi</name>
+	<name>personapi_edabruzzo</name>
 	<description>Project developed on Digital Innovation One</description>
 	<properties>
 		<java.version>11</java.version>
