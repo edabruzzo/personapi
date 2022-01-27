@@ -34,7 +34,7 @@ public class Person {
     private String email;
 
     @Column(nullable = false, unique = true)
-    @Pattern(regexp="([0-9]{2}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[\\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[-]?[0-9]{2})\n")
+    @Pattern(regexp="([0-9]{3}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[-]?[0-9]{2})")
     private String cpf;
 
     @Column(name="rg", nullable = false, unique = true)
