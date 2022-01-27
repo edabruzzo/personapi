@@ -1,6 +1,7 @@
 package br.com.abruzzo.digitalinnovation.personapi.dto;
 
 import br.com.abruzzo.digitalinnovation.personapi.model.Phone;
+import lombok.Data;
 import lombok.NonNull;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Data
 public class PersonDTO {
 
     private UUID uuid;

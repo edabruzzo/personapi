@@ -1,12 +1,10 @@
 package br.com.abruzzo.digitalinnovation.personapi.dto;
 
-import br.com.abruzzo.digitalinnovation.personapi.model.PhoneType;
+import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import java.util.UUID;
 
+@Data
 public class PhoneDTO {
 
     private UUID uuid;
