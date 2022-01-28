@@ -4,6 +4,7 @@ package br.com.abruzzo.digitalinnovation.personapi.controllers;
 import br.com.abruzzo.digitalinnovation.personapi.dto.PersonDTO;
 import br.com.abruzzo.digitalinnovation.personapi.exceptions.PersonDTONotFoundException;
 import br.com.abruzzo.digitalinnovation.personapi.service.PersonService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,10 +17,10 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/persons")
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonController {
 
 
-    @Autowired
     private PersonService personService;
 
 

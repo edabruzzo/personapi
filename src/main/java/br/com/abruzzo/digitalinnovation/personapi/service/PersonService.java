@@ -5,27 +5,24 @@ import br.com.abruzzo.digitalinnovation.personapi.DAO.PersonRepository;
 import br.com.abruzzo.digitalinnovation.personapi.dto.PersonDTO;
 import br.com.abruzzo.digitalinnovation.personapi.exceptions.PersonDTONotFoundException;
 import br.com.abruzzo.digitalinnovation.personapi.model.Person;
+import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonService {
 
-    private static final Logger logger = LoggerFactory.getLogger(PersonService.class);
-
-    @Autowired
     private PersonRepository personRepository;
 
-    @Autowired
     private ModelMapper modelMapper;
 
 
