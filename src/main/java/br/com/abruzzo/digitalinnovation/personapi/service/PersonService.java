@@ -10,6 +10,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class PersonService {
 
@@ -24,11 +29,52 @@ public class PersonService {
 
     public PersonDTO createPerson(PersonDTO personDTO) {
 
-        Person person = modelMapper.map(personDTO, Person.class);
+        Person person = convertPersonDTO_ToModel(personDTO);
         person = this.personRepository.save(person);
-        personDTO = modelMapper.map(person, PersonDTO.class);
+        personDTO = convertPersonModelToDTO(person);
+        return personDTO;
+    }
+
+    private Person convertPersonDTO_ToModel(PersonDTO personDTO) {
+        Person person = modelMapper.map(personDTO, Person.class);
+        return person;
+    }
+
+    private PersonDTO convertPersonModelToDTO(Person person) {
+        PersonDTO personDTO = modelMapper.map(person, PersonDTO.class);
         return personDTO;
     }
 
 
+    public List<PersonDTO> getAllPersonDTOs() {
+
+        List<Person> personList = this.personRepository.findAll();
+        List<PersonDTO> personDTOList = new ArrayList<>();
+        personList.stream().forEach(person ->{
+            personDTOList.add(convertPersonModelToDTO(person));
+        });
+
+        return personDTOList;
+    }
+
+
+    public PersonDTO save(PersonDTO personDTO) {
+        Person person = this.convertPersonDTO_ToModel(personDTO);
+        person = this.personRepository.save(person);
+        personDTO = this.convertPersonModelToDTO(person);
+        return personDTO;
+
+    }
+
+    public PersonDTO findById(UUID uuid) {
+        Optional<Person> personDTOOptional = this.personRepository.findById(uuid);
+        Person person = personDTOOptional.orElse(new Person());
+        PersonDTO personDTO = this.convertPersonModelToDTO(person);
+        return personDTO;
+
+    }
+
+    public void deleteById(UUID uuid) {
+        this.personRepository.deleteById(uuid);
+    }
 }
