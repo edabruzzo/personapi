@@ -1,6 +1,5 @@
-package br.com.abruzzo.digitalinnovation.PersonDTOapi.controllers;
+package br.com.abruzzo.digitalinnovation.personapi.controllers;
 
-import br.com.abruzzo.digitalinnovation.personapi.controllers.PersonController;
 import br.com.abruzzo.digitalinnovation.personapi.dto.PersonDTO;
 import br.com.abruzzo.digitalinnovation.personapi.service.PersonService;
 import com.fasterxml.jackson.databind.ObjectMapper;
