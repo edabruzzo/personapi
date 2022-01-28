@@ -3,7 +3,6 @@ package br.com.abruzzo.digitalinnovation.personapi.controllers;
 
 import br.com.abruzzo.digitalinnovation.personapi.dto.PersonDTO;
 import br.com.abruzzo.digitalinnovation.personapi.exceptions.PersonDTONotFoundException;
-import br.com.abruzzo.digitalinnovation.personapi.model.Person;
 import br.com.abruzzo.digitalinnovation.personapi.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
