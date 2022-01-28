@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class PersonService {
@@ -50,12 +51,7 @@ public class PersonService {
     public List<PersonDTO> getAllPersonDTOs() {
 
         List<Person> personList = this.personRepository.findAll();
-        List<PersonDTO> personDTOList = new ArrayList<>();
-        personList.stream().forEach(person ->{
-            personDTOList.add(convertPersonModelToDTO(person));
-        });
-
-        return personDTOList;
+        return personList.stream().map(this::convertPersonModelToDTO).collect(Collectors.toList());
     }
 
 
