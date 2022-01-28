@@ -3,6 +3,7 @@ package br.com.abruzzo.digitalinnovation.personapi.service;
 
 import br.com.abruzzo.digitalinnovation.personapi.DAO.PersonRepository;
 import br.com.abruzzo.digitalinnovation.personapi.dto.PersonDTO;
+import br.com.abruzzo.digitalinnovation.personapi.exceptions.PersonDTONotFoundException;
 import br.com.abruzzo.digitalinnovation.personapi.model.Person;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -76,5 +77,19 @@ public class PersonService {
 
     public void deleteById(UUID uuid) {
         this.personRepository.deleteById(uuid);
+    }
+
+    public PersonDTO updatePersonDTO(UUID uuid, PersonDTO personDTO) {
+        Person person = this.convertPersonDTO_ToModel(personDTO);
+
+        person = this.personRepository.getById(uuid);
+
+        if(person == null)
+                throw new PersonDTONotFoundException(String.format("Não foi encontrada a pessoa com id %s", uuid));
+        else{
+            person = this.personRepository.save(person);
+            personDTO = this.convertPersonModelToDTO(person);
+        }
+        return personDTO;
     }
 }
