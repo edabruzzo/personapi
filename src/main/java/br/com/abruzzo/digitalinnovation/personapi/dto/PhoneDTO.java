@@ -1,5 +1,6 @@
 package br.com.abruzzo.digitalinnovation.personapi.dto;
 
+import br.com.abruzzo.digitalinnovation.personapi.model.PhoneType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +21,7 @@ public class PhoneDTO {
     private UUID uuid;
 
     @Enumerated(EnumType.STRING)
-    private PhoneTypeDTO phoneTypeDTO;
+    private PhoneType phoneTypeDTO;
 
     @NotEmpty
     @Size(min=10,max=14)
